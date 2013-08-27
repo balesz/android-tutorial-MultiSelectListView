@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<net.solutinno.tutorial.multiselect.CheckableRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/selector_listview_item"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@id/textTitle"
+        android:text="@string/test_text_title"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@id/textSubtitle"
+        android:text="@string/test_text_subtitle"
+        android:layout_below="@id/textTitle"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+</net.solutinno.tutorial.multiselect.CheckableRelativeLayout>
