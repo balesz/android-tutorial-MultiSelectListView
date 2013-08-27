@@ -46,15 +46,14 @@ public class MainActivity extends ActionBarActivity {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            mListView.setItemChecked(i, true);
+            if (mListView.getCheckedItemIds().length < 2) mListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         }
     };
     private AdapterView.OnItemLongClickListener mOnItemLongClickListener = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
             mListView.setItemChecked(i, !mListView.isItemChecked(i));
-            if (mListView.getChoiceMode() < AbsListView.CHOICE_MODE_MULTIPLE) mListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-            if (mListView.getCheckedItemIds().length == 0) mListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+            if (mListView.getChoiceMode() == AbsListView.CHOICE_MODE_SINGLE) mListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
             return true;
         }
     };
