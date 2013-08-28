@@ -7,13 +7,13 @@
 
     <TextView
         android:id="@id/textTitle"
-        android:text="@string/test_text_title"
+        android:text="@string/test_text_title" android:textAppearance="@android:style/TextAppearance.Medium"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent" android:layout_height="wrap_content" />
 
     <TextView
         android:id="@id/textSubtitle"
-        android:text="@string/test_text_subtitle"
+        android:text="@string/test_text_subtitle" android:textAppearance="@android:style/TextAppearance.Small"
         android:layout_below="@id/textTitle"
         android:layout_width="match_parent" android:layout_height="wrap_content" />
 
