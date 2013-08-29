@@ -1,6 +1,12 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:id="@+id/action_single"
+        android:title="@string/action_single"
+        android:showAsAction="always"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_multiple"
+        android:title="@string/action_multiple"
+        android:showAsAction="always"
+        app:showAsAction="always" />
 </menu>

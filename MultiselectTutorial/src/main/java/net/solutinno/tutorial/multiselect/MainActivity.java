@@ -5,9 +5,8 @@ import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
@@ -31,8 +30,6 @@ public class MainActivity extends ActionBarActivity {
         mListView = (ListView) findViewById(R.id.listView);
         mListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         mListView.setItemsCanFocus(true);
-        mListView.setOnItemClickListener(mOnItemClickListener);
-        mListView.setOnItemLongClickListener(mOnItemLongClickListener);
         mListView.setAdapter(mAdapter);
     }
 
@@ -43,20 +40,17 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            if (mListView.getCheckedItemIds().length < 2) mListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        mListView.clearChoices();
+        if (item.getItemId() == R.id.action_single) {
+            mListView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         }
-    };
-    private AdapterView.OnItemLongClickListener mOnItemLongClickListener = new AdapterView.OnItemLongClickListener() {
-        @Override
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-            mListView.setItemChecked(i, !mListView.isItemChecked(i));
-            if (mListView.getChoiceMode() == AbsListView.CHOICE_MODE_SINGLE) mListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-            return true;
+        else if (item.getItemId() == R.id.action_multiple) {
+            mListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         }
-    };
+        return true;
+    }
 
     private MatrixCursor getData() {
         String title = getResources().getString(R.string.test_text_title);

@@ -4,5 +4,7 @@
     <string name="app_name">Multiselect</string>
     <string name="test_text_title">Test Title</string>
     <string name="test_text_subtitle">Test Subtitle</string>
+    <string name="action_single">SINGLE</string>
+    <string name="action_multiple">MULTIPLE</string>
 
 </resources>
